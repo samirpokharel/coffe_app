@@ -7,44 +7,41 @@ class Coffee extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
-        alignment: Alignment.topCenter,
+        alignment: Alignment.center,
         children: [
           Container(
             height: size.height,
-            width: size.width,
-            child: Image.asset(
-              "images/bg.jpg",
-              fit: BoxFit.cover,
-            ),
+            width: size.height,
+            child: Image.asset("images/bg.jpg", fit: BoxFit.cover),
           ),
           Container(
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.all(40),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0xff100702),
-                  Color(0xff100702).withOpacity(.4),
+                  Theme.of(context).primaryColor,
+                  Theme.of(context).primaryColor.withOpacity(.4)
                 ],
               ),
             ),
-            child: Image.asset("images/coffee.png"),
+            child: Image.asset('images/coffee.png'),
           ),
           Positioned(
-            top: 50,
+            top: 70,
             child: Text(
-              "ITS GREAT DAY FOR",
+              "ITS GREATE DAY FOR",
               style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w400,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
                 color: Color(0xffB98C53),
               ),
             ),
           ),
           Positioned(
-            top: 80,
+            top: 95,
             child: Text(
               "Coffee",
               style: TextStyle(
@@ -57,25 +54,29 @@ class Coffee extends StatelessWidget {
           Positioned(
             bottom: 50,
             child: SizedBox(
-              width: 150,
               height: 60,
+              width: 150,
               child: FlatButton(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(40),
+                  borderRadius: BorderRadius.circular(30),
                 ),
                 color: Color(0xffB98C53),
-                child: Text(
-                  "Order Now",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => DetailPage(),
                   ),
                 ),
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_)=> DetailPage(),),
+                child: Text(
+                  "Order",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
-          ),
-          ),
+          )
         ],
       ),
     );

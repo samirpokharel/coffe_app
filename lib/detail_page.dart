@@ -7,48 +7,45 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         height: size.height,
-        width: size.width,
+        width: size.height,
         child: Stack(
-          alignment: Alignment.topCenter,
           children: [
             Container(
-              alignment: Alignment.topCenter,
               padding: EdgeInsets.all(30),
-              height: 240,
+              alignment: Alignment.topCenter,
               child: Row(
                 children: [
                   IconButton(
+                    onPressed: () => Navigator.pop(context),
                     icon: Icon(
                       Icons.arrow_back,
                       color: Colors.white,
                     ),
-                    onPressed: () => Navigator.pop(context),
                   ),
                   Spacer(),
                   IconButton(
+                    onPressed: () {},
                     icon: Icon(
                       Icons.search,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
-                  ),
+                  )
                 ],
               ),
+              height: 290,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.cover,
                   image: AssetImage("images/cappuccino.jpg"),
                 ),
               ),
-              // child: R,
             ),
             Positioned(
-              top: 210,
+              top: 250,
               child: Container(
-                alignment: Alignment.topCenter,
-                height: size.height,
-                width: size.width,
                 padding: EdgeInsets.all(40),
+                width: size.width,
+                height: size.height,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -57,26 +54,20 @@ class DetailPage extends StatelessWidget {
                   ),
                 ),
                 child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       "COFFEE",
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
-                      ),
-                    ),
-                    SizedBox(height: 6),
-                    Text(
-                      "Cappuccion",
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
+                      style: TextStyle(fontSize: 17),
                     ),
                     SizedBox(height: 10),
+                    Text(
+                      "cappuccino",
+                      style: TextStyle(
+                        fontSize: 42,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -89,61 +80,61 @@ class DetailPage extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      " is simply dummy text of the printing and typesetting "
-                      "industry. Lorem Ipsum has been the industry's standard dummy "
+                      " is simply dummy text of the printing and typesetting"
+                      " industry. Lorem Ipsum has been the industry's standard dummy "
                       "text ever since the 1500s, when an unknown printer took a galley"
-                      " of type and scrambled it to make a type specimen book. It has",
+                      " of type and scrambled it to make a type specimen book. It has ",
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 17,
-                      ),
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                     SizedBox(height: 20),
                     Text(
-                      "\$10.90",
+                      '\$10.90',
                       style: TextStyle(
-                        fontSize: 35,
+                        fontSize: 30,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(height: 20),
                     Container(
-                      width: 150,
+                      alignment: Alignment.center,
+                      width: 170,
+                      height: 50,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(
-                          color: Colors.grey,
-                          width: 1,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
+                          borderRadius: BorderRadius.circular(23),
+                          border: Border.all(
+                            color: Colors.grey,
+                            style: BorderStyle.solid,
+                          )),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextButton(onPressed: () {}, child: Text("+")),
-                          Text('2'),
+                          Text("2"),
                           TextButton(onPressed: () {}, child: Text("-"))
                         ],
                       ),
                     ),
                     SizedBox(height: 20),
                     SizedBox(
+                      height: 55,
                       width: double.infinity,
-                      height: 60,
                       child: FlatButton(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
+                          borderRadius: BorderRadius.circular(25),
                         ),
-                        onPressed: () {},
-                        child: Text("ORDER",style: TextStyle(fontSize: 20),),
+                        color: Theme.of(context).primaryColor,
                         textColor: Colors.white,
-                        color: Color(0xff0D0502),
+                        onPressed: () {},
+                        child: Text("Order Now",style: TextStyle(
+                          fontSize: 20,
+                        ),),
                       ),
                     )
                   ],
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
